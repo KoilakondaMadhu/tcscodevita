@@ -1,0 +1,110 @@
+
+SnakeAndPriestMarks: 100
+Problem Description
+Given a Matrix of N*N.
+There are M snakes present in the matrix. They will move in a specific range the movement is given below.
+Snake movement-
+
+1)If it is vertically oriented in the matrix. It will move up or down. Based on the start and end block provided in the input.
+2)If it is horizontally oriented in the matrix. It will move left or right. Based on the start and end block provided in the input.
+3)Snake will move one block ahead at 1 unit time.
+4)If it reaches the boundary(ith row or jth column) of the matrix it will come from another end of the matrix in the same ith row or jth column.
+
+5) start_block is the head and end_block is the tail.
+
+Note: start_block and end_block represent the snake occupying these cells and the cells between them.
+
+For example, if start_block is 1,5 and end_block is 1,8 then snake occupies (1, 5), (1, 6), (1, 7), (1, 8)
+
+For Example-
+Snake Initial Position
+
+Snake_name
+
+Start_block
+
+End_block
+
+Snake1
+
+1,8
+
+1,5
+
+In this case, snake1 will move towards west all the time because the start block is towards the east and the end block is towards the west, when it reaches the end of the matrix it will again start from the start of row 1 towards east.
+
+To achieve Nirvana the priest has to cross the matrix. The priest moves one step at a time. He can start from any side of the matrix and reach the other side. If he starts from the north, he needs to go to the south but cannot go in east and west direction, if he starts from the east, he needs to go to the west but not in south and south directions and vice versa.
+Check whether he will be able to get Nirvana, if not print which snake killed him at which location.
+
+Priest Input format-
+
+The input format of priest is as follows:
+
+DirectionNumber where Direction represents directions (E for East, w for west, N for North, S for South) and Number represents column or row.
+
+For north and south directions, number always represents the column. The row of north and south are first and last row respectively.
+
+For east and west directions, number always represents the row. The column of east and west are last and first column respectively.
+
+For example
+Ex- W5 -> This means it will start from the west and move towards the east. Initially, it will be the 1st column and 5th row.
+N2 -> This means it will start from the north and move towards the south. Initially, it will be the 1st row and 2nd column.
+Note- The snakes can overlap each other.
+
+Constraints
+10<=N<50
+1<=M<20
+
+Input
+First-line contains an integer N denoting the number of rows and columns in a matrix.
+Second-line contains an integer M denoting the number of snakes present.
+Next M lines contain space-separated data about each snake's initial position. In the below-given Format
+Snake_name start_block end_block
+The next line contains string denoting the block and direction from which the priest will start to move.
+
+Output
+Print "NIRVANA" in case of priest reaches the other side of the matrix.
+OR
+Print the which snake killed the priest and at which position.
+
+Time Limit (secs)
+1
+
+Examples
+Input
+
+10
+4
+Snake1 1,5 1,8
+Snake2 7,4 7,7
+Snake3 2,10 4,10
+Snake4 4,2 2,2
+W2
+
+Output
+
+NIRVANA
+
+Explanation-
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@5a50d9fc:image1.gif
+
+Example 2
+
+Input
+
+10
+2
+Snake1 3,5 2,5
+Snake2 4,2 2,2
+S5
+
+Output
+
+Snake1 6,5
+
+Explanation-
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@5a50d9fc:image2.gif
+
+Upload Solution [ Question : 
