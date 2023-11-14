@@ -1,0 +1,212 @@
+
+IPLMINUSTWOMarks: 200
+Problem Description
+The Indian Premier League (IPL) is a professional Twenty20 cricket league, contested by eight teams based out of eight Indian cities. IPL is going to start, and, in this season, you have been given the responsibility to maintain the score board of the league. You have been provided the result of each match. Total 8 teams compete (MI, CSK, RCB, RR, SRH, DC, PKBS, KKR) for winning the title. Each team will play two matches with every other team before playoffs. So, the total number of matches before playoffs will be 56 league matches. However, you will be provided details of only 54 matches.
+
+The format in which the scores will be given is - the runs scored by team batting first followed by the fall of wickets followed by the number of balls played. The same data will be provided for team batting second.
+
+For example-
+
+Abstract Format - FirstTeamName Runs/Wickets BallsPlayed SecondTeamName Runs/Wickets BallsPlayed
+
+Actual Record - MI 191/10 110 CSK 190/4 120
+
+Here MI scored 191 runs in 110 balls at the loss of 10 wickets and CSK scored 190 runs at the loss of 4 wickets in 120 balls.
+
+The points table is to be constructed based on the given inputs. The points table contains <TeamName, TotalPointsScored by team, and NRR (Net Run Rate)>. The order in which teams will be present is based on the ranking. Ranking of teams is first based on number of points and then on NRR, in case the points are tied.
+
+The points table formation rules are given below-
+
+The team winning the match will get 2 points.
+NET RUN RATE is calculated as follows:
+Case 1: When both teams make same score. Each team is rewarded with 1 point each and run rate is zero for both the teams.
+Case 2: Team batting first wins the match In this scenario, the margin of runs by which team wins are multiplied by 2 and we get run rate of the match.
+Run rate (RR) = (Runs Difference) * 2
+The winning teams gets positive RR and the losing team gets negative RR.
+For example - team1 = 200 in 120 balls (20.0 overs) and team2 scores 160 in 96 balls (16.0 overs). Here, team2 scored 160 runs in 96 balls. So, team1 RR = (200-159) * 2 = 82 and team2 RR is -82.
+Case 3: Team Batting second wins the match.
+In this scenario total runs which would have been scored by the winning team if it had batted 20 overs (120 balls) are calculated and the difference with the first team is taken.
+Run Rate= (Projected score of winning team - score of losing team) * 2
+For example - team1 = 159 and team2 scores 160 in 96 balls (16.0 overs). Here, team2 scored 160 runs in 96 balls so runs that can be scored in 120 balls is 200. So, the projected score for team2 is 200. So, team2 RR = (200-159) * 2 = 82 and team1 RR is -82.
+Net Run rate = (sum of Run Rate of individual matches) / (total number of matches).
+
+Information about 54 matches is provided. Ranking of the teams after all 56 matches is provided. Basis these two pieces of information, determine the teams that played the other two matches along with the outcome of those matches i.e., who won and who lost.
+
+Assume that the result of remaining two matches will be win or loss, no draw / tie. Further assume that even in 54 match records there are no tied matches.
+
+Note - There are no test cases where the teams have same points and same NRR by the end of league matches.
+
+For reference about Cricket and IPL
+
+Cricket T20 - https://en.wikipedia.org/wiki/Twenty20
+
+IPL- https://en.wikipedia.org/wiki/Indian_Premier_League
+
+Constraints
+N = 54 where N is the outcome of 54 league matches
+
+Input
+First 54 lines contains a string which represents the result for every match in the format described in problem description section
+
+Next 8 lines contain a string denoting ranking of teams in ascending order of ranks (i.e., first sorted on points and then by net run rate (NRR)).
+
+Output
+Print the possible outcomes of the remaining two matches in lexicographical order of cases.
+
+WIN:TEAM1|LOSE:TEAM2||WIN:TEAM3:LOSE:TEAM4
+
+WIN:TEAM2|LOSE:TEAM1||WIN:TEAM3:LOSE:TEAM4
+
+.. all possible cases.
+
+Where || is the match separator and | is the team separator
+
+And winner is always placed on the left hand side of the team separator and loser is always placed on the right hand side.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+MI 111/4 120 PBKS 115/8 84
+
+RR 211/9 120 SRH 150/4 120
+
+KKR 179/3 120 RCB 129/7 120
+
+MI 217/7 120 PBKS 174/10 120
+
+SRH 177/2 120 DC 149/4 120
+
+RR 190/4 120 PBKS 137/10 120
+
+KKR 202/9 120 RCB 202/8 120
+
+MI 174/8 120 RCB 164/9 120
+
+KKR 162/9 120 DC 114/4 120
+
+CSK 197/3 120 RCB 120/1 120
+
+MI 136/2 120 KKR 116/6 120
+
+RR 140/4 120 RCB 144/4 115
+
+CSK 160/6 120 DC 164/6 79
+
+CSK 124/2 120 SRH 128/7 76
+
+MI 216/3 120 CSK 196/5 120
+
+KKR 118/8 120 PBKS 122/10 113
+
+MI 205/2 120 DC 184/8 120
+
+CSK 150/6 120 RR 154/10 77
+
+PBKS 110/10 114 RCB 114/9 105
+
+MI 178/1 120 RR 146/2 120
+
+CSK 198/9 120 KKR 148/9 120
+
+RR 120/6 120 PBKS 124/9 71
+
+SRH 144/2 120 RCB 148/9 113
+
+CSK 127/4 120 PBKS 119/10 120
+
+DC 186/6 120 RCB 190/7 91
+
+CSK 129/9 120 DC 133/8 91
+
+MI 148/2 120 RR 152/9 119
+
+MI 213/7 120 SRH 142/4 120
+
+MI 208/6 120 CSK 198/4 120
+
+RR 171/4 120 DC 123/6 120
+
+SRH 169/6 120 DC 147/6 120
+
+KKR 116/2 120 RR 120/7 91
+
+CSK 168/10 117 KKR 172/5 67
+
+SRH 179/7 120 RCB 183/6 92
+
+CSK 210/6 120 PBKS 186/4 120
+
+KKR 136/8 120 SRH 110/5 120
+
+MI 110/5 120 RCB 114/5 103
+
+CSK 193/6 120 RR 147/8 120
+
+SRH 178/6 120 PBKS 162/9 120
+
+KKR 193/10 103 DC 156/9 120
+
+MI 210/3 120 KKR 188/6 120
+
+KKR 117/2 120 PBKS 111/4 120
+
+MI 218/8 120 SRH 118/1 120
+
+RR 163/3 120 RCB 167/4 100
+
+DC 130/4 120 RCB 134/3 109
+
+CSK 189/1 120 RCB 173/4 120
+
+SRH 151/6 120 PBKS 125/6 120
+
+RR 112/6 120 SRH 116/2 91
+
+MI 162/2 120 DC 166/9 99
+
+PBKS 214/10 88 DC 185/6 120
+
+PBKS 116/7 120 RCB 120/6 61
+
+PBKS 163/4 120 DC 167/2 92
+
+KKR 114/3 120 RR 118/10 109
+
+CSK 131/9 120 SRH 117/8 120
+
+MI
+
+RCB
+
+RR
+
+SRH
+
+CSK
+
+KKR
+
+DC
+
+PBKS
+
+Output
+
+WIN:DC|LOSE:RR||WIN:SRH|LOSE:KKR
+
+WIN:RR|LOSE:DC||WIN:SRH|LOSE:KKR
+
+Explanation-
+
+From the given 54 matches and the rankings as input, four teams have one match remaining. Specifically, the match DC vs RR and SRH vs KKR.
+
+Case1- DC wins against RR and SRH wins against KKR. In that case the rankings will look as follows MI, RCB, RR, SRH, CSK, KKR, DC, PBKS.
+
+Case2- RR wins against DC and SRH wins against KKR. In that case the rankings will look as follows MI, RCB, RR, SRH, CSK, KKR, DC, PBKS.
+
+Then print the cases lexicographically in provided forma
