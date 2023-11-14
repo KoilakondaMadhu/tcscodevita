@@ -1,0 +1,138 @@
+HelpMLAMarks: 100
+Problem Description
+Imagine you are an MLA of a district and there are N number of villages in your constituency.
+
+Your job is to vaccinate all the people in your constituency in minimum amount of time. There are two centres where vaccination is going on. First centre takes m1 minutes as average time for vaccinating one person and second centre takes m2 minutes as average time.
+
+Population of every village is known to you prior to the vaccination drive. Schedule all the villagers to any centre such that overall time for vaccinating all the people of all the villages will be minimum.
+
+Assume that there is no wait time in between vaccinating two people. Also, people belonging to the same village will need to be vaccinated in the same centre.
+
+For example:
+
+First centre takes 2 min as average time
+
+Second centre takes 4 min as average time
+
+Population data of 3 villages is known: 10 30 20
+
+Number of people in 3 villages is given:
+
+v1 = 10, v2 = 30, v3 = 20
+
+Consider if schedule is drawn by distributing equal number of people to both centres, then
+
+First centre: 10 20 total time = (10 + 20) * 2 = 60 min
+
+Second centre: 30 total time = (30) * 4 = 120 min
+
+Hence, minimum time required to vaccinate all the people will be = 120 min. i.e., Maximum of time taken in first centre or second centre.
+
+But if it is scheduled like this:
+
+Constraints
+0 < m1, m2 <= 20
+
+0 < N < 10 ^ 3
+
+0 < Population of village <= 100
+
+Input
+First line contains an integer m1 which is average time in minutes taken for vaccination by the first centre
+
+Second line contains an integer m2 which is average time in minutes taken for vaccination by the second centre
+
+Third line contains an integer N which is number of villages in the constituency
+
+Fourth line contains N space delimited integers denoting the population of villages
+
+Output
+Single integer value denoting the maximum time taken in minutes to vaccinate all villagers from all villages in your constituency
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+2
+
+3
+
+5
+
+10 50 20 30 40
+
+Output
+
+180
+
+Explanation:
+
+Given the data of centre1 and centre2:
+
+First centre takes 2 min as average time. Second centre takes 3 min as average time. Your constituency has 5 villages.
+
+Number of people in each of the 5 villages is given: 50 10 20 30 40
+
+v1 = 50, v2 = 10, v3 = 20, v4 = 30, v5 = 40
+
+If schedule looks like this:
+
+First centre: 10 50 total time = (10 + 50) * 2 = 120 min
+
+Second centre: 30 40 20 total time = (20 + 40 + 20) * 3 = 240 min
+
+Minimum time required to vaccinate all the people will be = 240 min
+
+But if the schedule is drawn like this:
+
+First centre: 10 30 50 total time = (10 + 30 + 50) * 2 = 180 min
+
+Second centre: 40 20 total time = (40 + 20) * 3 = 180 min
+
+Minimum time required to vaccinate all the people will be = 180 min
+
+Example 2
+
+Input
+
+1
+
+2
+
+3
+
+100 90 70
+
+Output
+
+180
+
+Explanation:
+
+Given the data of centre1 and centre2:
+
+First centre takes 1 min as average time. Second centre takes 2 min as average time. There are 3 villages in your constituency.
+
+Number of people in each of the 3 village is given: 100 90 70
+
+v1 = 100, v2 = 90, v3 = 70
+
+If schedule looks like this:
+
+First centre: 100 90 total time = (100 + 90) * 1 = 190 min
+
+Second centre: 70 total time = (70) * 2 = 140 min
+
+Minimum time required to vaccinate all the people will be = 190 min
+
+But if schedule is drawn like this:
+
+First centre: 100 70 total time = (100 + 70) * 1 = 170 min
+
+Second centre: 90 total time = (90) * 2 = 180 min
+
+Minimum time required to vaccinate all the people will be = 180 min. Hence the output is 180.
