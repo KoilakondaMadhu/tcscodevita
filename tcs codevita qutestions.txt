@@ -1,0 +1,719 @@
+WareHouse
+Problem Description
+A godown, which in other words called as a warehouse, is a building which is used to store raw materials or manufactured goods until they are exported to other places.
+
+There are n number of go-downs which are used to store and ripe large quantity of bananas. Once the bananas are ripened, every godown owner will pack all those bananas as a single unit and transport them to airport for exporting them to other countries. All these godowns are close to each other and the owners are friendly. So while transporting the bananas, they would like to share the vehicle (if possible) in order to reduce the transportation cost. But only two people can share a vehicle and each vehicle can carry a weight of "w" tons at a time.
+
+Given an array representing the weights of bananas of each owner, the maximum limit that the vehicle can hold, find the minimum number vehicles needed to transport all the bananas to the airport.
+
+Note: There are no loads which are heavier than the given limit.
+
+The weight of the bananas is measured in tons.
+
+Constraints
+0 <= len(arr) <= 10^5
+
+0 <= arr[i] <= 10^5
+
+The array may have duplicate numbers.
+
+Input
+First line consists of an array of integers denoting the weights of bananas in the godown.
+
+Second line consists of a single integer k which denotes the maximum weight limit of the vehicle in tons.
+
+Output
+Print the minimum number of vehicles needed.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+4 2 8 5 1 3 6
+
+8
+
+Output
+
+4
+
+Explanation
+
+We can load (8), (4,3), (6,2), (5, 1) in 4 different vehicles. Any other arrangements will never give less than 4 vehicles.
+
+Example 2
+
+Input
+
+4 7 9 11 6 8 3
+
+12
+
+Output
+
+5
+
+Explanation
+
+We can load (11), (8,3), (6,4), (9), (7) in 5 different vehicles. Any other arrangements will never give less than 5 vehicles.
+
+
+
+Password Generator
+Problem Description
+CAPTCHA is a service that is used to know whether app users are humans or bots. This includes clicking in a specific area, entering the given numbers in text box, selecting the mentioned things from the pictures etc. But company XYZ wanted to update the CAPTCHA pattern for high security.
+
+Scientific notation, also known as standard form or exponential notation, is a way to write very large or very small numbers in a more compact and manageable form. In scientific notation, nonzero numbers are written in the form m × 10 or m times ten raised to the power of n, where n is an integer, and the coefficient m is a nonzero real number (usually between 1 and 10 in absolute value, and nearly always written as a terminating decimal).
+
+Tina, a developer, is working on creating a CAPTCHA system that requires a high level of human engagement i.e., from the given number one has to perform some operations on it and then enter the result in the text box provided. The rules for generating the password are given below.
+
+You will receive a numerical value. Transform the provided decimal number into scientific notation. Simplify all the digits after the decimal point to a single digit by adding all the digits until it becomes single digit, and apply the same rule to the exponent.
+Next, create a string by concatenating the first three letters of each digit when expressed as words, while keeping the symbols and letter 'e' unchanged. This resultant string will be denoted as S1.
+If the digit resulting from reducing the value of exponent to a single digit is odd, concatenate all the letters at odd positions in the given name (using 1-based indexing). This string is referred to as S2.
+Your desired password will be the combination of S1 and S2, separated by an "@" symbol, forming the format S1@S2.
+Given t number of test cases. In each test cases there is an integer / decimal number and the name of the person who is trying to resolve the CAPTCHA. Print the correct password in each test case. In case of invalid number, print "Invalid input".
+
+Note: Some additional rules in this problem are:
+
+If the given number is 3, scientific notation will be 3.0e0.
+If the given number is 323, scientific notation will be 3.23e+2
+Mathematically, the decimal number 0437 represents 437.
+Constraints
+1 <= len(name) <= 100
+
+1 <= len(number) <= 100
+
+1 <= T <= 10
+
+Number can be negative.
+
+There will be no spaces in the given name.
+
+Name will be consisting of only lower case letters. If not, consider invalid.
+
+Input
+The first line consists of T, number of test cases.
+
+Next T lines contain number and name separated by space.
+
+Output
+Print the password for each test case in a new line.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+2
+
+054785949 rajarajeswari
+
+00.00000934749 bhuvaneswari
+
+Output
+
+fiv.onee+sev@rjrjsai
+
+nin.nine-six@hvnsai
+
+Explanation
+
+Case 1: Let S1="" and S2=""
+
+Given number represent 54785949 which is 5.4785949e+7 in scientific notation. By reducing the number after the point (4785949) to a single digit, we get 1 and by reducing power to a single digit we get 7. So, according to given rules, the first string will be fiv.onee+sev. Since 7 is an odd number, we select all the letters at odd place of the name. So S2 will become rjrjsai.
+
+So the final password will be fiv.onee+sev@rjrjsai
+
+Case 2: Let S1="" and S2=""
+
+The scientific notation for the given decimal number is 9.34749e-6. By reducing the number after the point (34749) to a single digit, we get 9 and by reducing power to a single digit we get 6. So, according to given rules, the first string will be nin.nine-six. Since 6 is even number, we select all the letters at even place of the string. So S2 will be hvnsai.
+
+So the final password will be nin.nine-six@hvnsai
+
+Example 2
+
+Input
+
+2
+
+12.7u3 mahadev
+
+3 dhanyajoselyn
+
+Output
+
+Invalid
+
+thr.zerezer@hnaoey
+
+Explanation
+
+Case 1: Given input is invalid, hence print "Invalid".
+
+Case 2: Obeying the rules, scientific notation of 3 will be 3.0e0. By the given rules S1 will be thr.zerezer and S2 will be hnaoey. Hence the required output is thr.zerezer@hnaoey.
+
+
+
+
+
+
+Pick Up Service
+Problem Description
+James is a truck driver, who travels through multiple cities and picks up the goods from those cities which are to be sent overseas. Initially, he will start from city A and then travel through all the cities, collects goods and then brings them back to city A.
+
+Each city have only one path from city A and each city have k number of goods that are to be picked. James will prioritize the cities with more number of goods ie., if he is currently in city A and B,C are his neighbouring cities then he will prioritize B if it has more number of goods or vice versa. If both B and C have equal number of goods, then he will choose the city with minimum entry tax. The entry tax is the amount that we need to pay at the check post in order to enter into a city. In case of equal tax, he will head over to the city which comes first, lexicographically.
+
+James need to travel to all the cities and pickup the packages and return back to the starting city. Here once we reached the terminal city, we have to backtrack to particular city and continue to follow the rules for forward propagation and make sure we cover all other cities. Given the paths between these cities, number of goods in each city and the entry taxes of the cities, print the route map of his entire journey and the minimum tax he need pay.
+
+Note: The starting city is exempted from entry tax i.e. any number of times that James enters the starting city, he will be exempt from paying any tax.
+
+Constraints
+1 <= number of cities <= 10^3
+
+1 <= number of goods in each city <= 10^3
+
+1 <= entry tax of each city <=10^4
+
+Input
+First line consists of an integer N, representing the total number of cities.
+
+Next N-1 lines consists of four values in the format, "city1 city2 integer1 integer2" representing there exists a route from city1 to city2, the number of goods in the city2 is integer1 and the entry tax of city2 is integer2.
+
+Output
+Print the route map of his entire journey where route map refers to the order of cities he followed separated by a hyphen and the total tax he paid in two different lines.
+
+Refer to example section for better understanding.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+8
+
+hyderabad delhi 10 15
+
+hyderabad pune 24 60
+
+delhi kolkata 36 56
+
+pune kasi 4 90
+
+delhi chennai 16 100
+
+kasi manali 41 45
+
+chennai madhurai 8 20
+
+Output
+
+hyderabad-pune-kasi-manali-kasi-pune-hyderabad-delhi-kolkata-delhi-chennai-madhurai-chennai-delhi-hyderabad
+
+666
+
+Explanation
+
+James journey starts in hyderabad. By following the given rules and to achieve minimum tax, he will choose the city with more numbers of goods to be picked up ie., pune. From pune he will go to kasi followed by manali and returns back to hyderabad. He then goes to delhi, followed by kolkata and then returns back to delhi. From there he goes to chennai followed by madhurai and then finally returns to hyderabad.
+
+So the route map will look like hyderabad -> pune -> kasi -> manali -> kasi -> pune -> hyderabad -> delhi -> kolkata -> delhi -> chennai -> madhurai -> chennai -> delhi -> hyderabad.
+
+Upon calculating the entry taxes of respective cities, the minimum tax he need to pay will be 666.
+
+Example 2
+
+Input
+
+6
+
+banglore mumbai 45 105
+
+mumbai indore 16 230
+
+banglore lucknow 45 190
+
+lucknow kochi 54 96
+
+lucknow patna 54 28
+
+Output
+
+banglore-mumbai-indore-mumbai-banglore-lucknow-patna-lucknow-kochi-lucknow-banglore
+
+1134
+
+Explanation
+
+Following the given rules and to pay minimum tax, James will have to follow the below route.
+
+Banglore -> mumbai -> indore -> mumbai -> banglore -> lucknow -> patna -> lucknow -> kochi -> lucknow -> banglore
+
+Upon calculating the entry taxes of respective cities, the minimum tax he need to pay will be 1134.
+
+
+
+
+
+Solo Rider
+Problem Description
+Alex is a freelance developer, who develops applications. One day he got a proposal to develop an app called "SoloRider" which is a transportation service within Hyderabad city.
+
+Lets consider a location Hyderguda within the city. When a passenger gets down at this location, then the vehicle should be assigned to the nearest customer who booked the transportation service. But there will be multiple customers who booked the service and there will be multiple vehicles which will be available to serve that request, in the vicinity. So Alex needs to develop an application which will allocate passengers to the appropriate vehicles. His application will calculate the coordinate points of all the passengers and vehicles in the given area and then it follows the below rules to do passenger to vehicle assignment.
+
+Given N passengers and M vehicles which are idle at the given time in Hyderguda. You will have to assign one vehicle to each passenger based on the given rules.
+
+The customers should be prioritized based on the lexicographical order of their names.
+For a given customer, allocate the nearest vehicle which is idle. Here the term idle indicates that the vehicle is currently not associated with any passenger. Use Manhattan Distance for measuring distance between passenger and vehicle, vice versa.
+If more than one idle vehicle are equidistant from the passenger, then allocate them the vehicle which is lexicographically closest.
+Vehicles have vehicle numbers in the format vid where id is an integer. Lexicographically closest means the one which comes first in the alphabetical order.
+Once a vehicle gets allocated, then it will move towards the passenger and is no longer available to any other passenger.
+Print the minimum distance traveled by all the vehicles to reach their passengers obeying the given rules.
+
+Constraints
+1 <= N, M <= 100
+
+1 <= x,y coordinates <= 10^3
+
+Name of the passenger always comprises or upper and lower case characters.
+
+Vehicle number is in the format "vid" where id is an integer.
+
+Number of passengers <= Number of vehicles.
+
+Input
+The first line consists of two space delimited integers N, M denoting the number of passengers and vehicles.
+
+Next N lines will consist of the passenger's name and x,y coordinates of the passenger's exact location, all delimited by space.
+
+Next M lines will consist of the vehicle's number and x,y coordinates of the vehicle's exact location, all delimited by space.
+
+Output
+Single line consisting of an integer denoting the minimum distance traveled by all the vehicles to reach their passengers obeying the given rules.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+4 8
+
+Vishnu 4 4
+
+Ravali 1 6
+
+Krishna 8 3
+
+Vaishnavi 3 2
+
+v106 6 4
+
+v42 2 4
+
+v69 4 1
+
+v45 3 3
+
+v66 5 3
+
+v312 9 5
+
+v93 8 1
+
+v123 4 6
+
+Output
+
+8
+
+Explanation
+
+By plotting the given coordinate points in the 2d graph, it looks like below.
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@407cf41:image1.png
+According to the rules, we prioritize the customers in lexicographical order of their names. So we try assigning a vehicle to the customer named Krishna. For Krishna, the nearest vehicle is v93, so we will assign that vehicle to him. For Ravali, the vehicles are v42, v123 are at a distance of 3 from her. So we will assign the one which comes lexicographically first i.e., v123 will be assigned to Ravali. For Vaishnavi, v45 is the nearest vehicle. So we will assign her to that vehicle. Lastly, for Vishnu, v123, v42, v106, v45, v66, all these vehicles are at a distance of 2 from him. Since v123, v45 are already allocated and they are on the way to their customers, we exclude them. Thus we allocate v106 to Vishnu.
+
+On calculating the total distance traveled by all the vehicles in order to reach their customers, the output is 8.
+
+Example 2
+
+Input
+
+3 5
+
+Maya 4 4
+
+Neha 1 1
+
+Tara 7 1
+
+v11 3 6
+
+v82 1 6
+
+v69 4 1
+
+v109 3 3
+
+v26 10 5
+
+Output
+
+12
+
+Explanation
+
+By plotting the given coordinate points in the 2d graph, it looks like below.
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@407cf41:image2.png
+
+According to the rules, we prioritize the customers in lexicographical order of their names. So we try assigning a vehicle to the customer named Maya. Nearest vehicle to Maya is v109 and we will assign that to her. For Neha, The nearest is v69, so we will assign v69 to Neha. Lastly, for Tara, we will assign v26.
+
+On calculating the total distance traveled by all the vehicles in order to reach their customers, the output is 12.
+
+
+
+Splitit
+Problem Description
+Amit is residing in a Paying Guest Accommodation with his friends and has encountered difficulties in tracking their shared expenses as the group's spending increased. To address this challenge, Amit decided to develop a mobile application for group expense management and payment settlement. The application aims to streamline group spending by automating expense tracking, group splits, and keeping records of transactions among friends.
+
+Amit maintains a list of expenses in the following format:
+
+Paid By/Amount/Person1/Person2....... /Person k
+For example, A/240/A/B/C indicates that person A spent 240, which is split among individuals A, B, and C.
+
+Settlements and transactions are recorded as:
+
+Paid By/To/Amount (e.g., B/A/80 means B paid A 80).
+Lent By/To/L<Amount> (e.g., A/B/L100 indicates A lend B 100).
+The objective is to determine the balances at the end, indicating who owes whom and how much.
+
+A rule is established that if a friend fails to repay a loan within a week, a 12% per annum compound interest, calculated weekly, is applied. The loan is considered paid if the transaction amount equals the incurred interest plus principal.
+
+Rules for Settling two types of Transactions are as mentioned below.
+
+Each line of input corresponds to one day. Only one transaction will happen on each day. Hence, if there are N lines in the input overall time over which all transactions are spread is, N days. Use this information to calculate interest on Loan(s)
+
+Expense settlement (Non loan transaction):
+
+No specific rules per se. Assume all expenses are to be borne equally by friends for whom the expenses are made.
+Expense settlement can either be full amount or any arbitrary partial amount.
+Loan Repayment:
+
+A person can borrow more than once from the same counter party without settling prior loans.
+A person can close at most two loans per transaction for a single lender. Loans owed to different lenders cannot be settled in the same transaction.
+The loan is said to be paid if the transaction amount is equal to the incurred interest plus principal.
+Since interest is calculated on a weekly basis, payment on any weekday will incur the same amount, for example if interest at the end of week 1 is 100 then payment on any day before end of week 2 will require only 100 to be paid. However, at the end of week 2, if the loan is still unpaid a new interest must be paid.
+If a transaction amount equals principal plus interest for two or more loans of the same amount, then consider that this transaction is repaying the first loan. For example, A takes 100 loans from B on Day 1 and same amount on Day 2 then in the 7th day the interest plus principal will be same for both then the loan payment will be considered for the first one.
+Assume that each person will pay only the full amount for closing the loan. No partial payment of loans is permitted.
+A transaction can either be an Expense Settlement or Loan Repayment. These two types of transactions cannot be combined.
+Reconciliation Rules
+
+Following rules should be adhered to at reconciliation time:
+
+Assume, A owes 40, B owes 40, C expects to receive 40 and D expects to receive 40, then reconciliation should also be in lexicographical order i.e. A will pay C and B will pay D
+Obviously, the above applies only to break ties where amounts are the same. If amounts are unique then reconciliation is straight forward
+Reconciliation should include both expense settlement as well as loan repayment amount(s).
+Constraints
+A person's name ranges from A to Z.
+
+1 <= Amount <= 10^4
+
+1 <= Transaction and Expenses <= 10^4
+
+Input
+The first line contains an integer N, representing the number of transactions and expenses.
+
+The next N lines contain the expenses and transactions.
+
+Output
+Print who owes whom how much in lexicographical order of the payer. In the format <Payer/ Recipient / Amount> Ignore printing zero balance transactions. If there are no pending dues, print "NO DUES."
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+3
+
+A/240/A/B/C
+
+B/120/A/C
+
+C/100/C/A
+
+Output
+
+C/A/50
+
+C/B/40
+
+Explanation
+
+On the first day A spends 240 that is shared equally between A, B and C. Then B spends 120 that is shared between equally A and C and finally C spends 100 shared equally between C and A.
+
+So, the final expenditure would be:
+
+A: +50
+
+B: +40
+
+C: -90
+
+Therefore, C will give 50 to A and 40 to B.
+
+Example 2
+
+Input
+
+5
+
+A/240/A/B/C
+
+B/120/A/C
+
+C/A/100
+
+C/B/40
+
+C/100/C/A
+
+Output
+
+A/C/50
+
+Explanation
+
+On the first day of input A spends 240 that is shared equally between A, B and C. On Second day, B spends 120 that is shared equally between A and C. By end of Day 2 C owed a total of 140 (-80 -60) and A had an outstanding of 100 to receive and B had a total of 40 to receive. Then on third and the fourth-day C settled his balance with A and B with amount 100 and 40. On the fifth day C spent 100 that is shared equally between C and A.
+
+Therefore, the final expenditure would be:
+
+A: -50
+
+C: +50
+
+Therefore, A will give C 50.
+
+Example 3
+
+Input
+
+8
+
+C/B/L100
+
+A/240/A/B/C
+
+B/120/A/C
+
+C/A/100
+
+C/100/C/A
+
+B/A/L200
+
+C/B/L300
+
+B/C/100
+
+Output
+
+A/C/250
+
+B/C/60
+
+Explanation
+
+The first day B took a loan of 100 from C and the next two days' expenses are normal spending of 240 and 120 done by A and B which is split between A, B, C and A, C respectively. The 4th day is a normal settlement of 100 done by C to A. On the 5th day C spends 100 which is split between C and A. Then the next two expenses are money lent by B and C to A and B respectively, of the amount of 200 and 300. And finally on the eight-day C pays a settlement of 100 which is the settlement of the money lent by C to B on the 1st day, so he has settled the amount of 100.
+
+After reconciling, it is found that A owed an amount of 40 and amount of 10 to B and C respectively. But there is money that has been lent by B to A and C to B and C. But as a week has not passed by, no interest is incurred upon it.
+
+
+Therefore, reconciliation will be done after the summation of the pending settlement and the interest. The final reconciliation will be that A will pay an additional 200 to B and B will pay additional 300 to C therefore after settlement the balance will be:
+
+A/C/250
+
+B/C/60
+Note: Observe that expense settlement and the loan repayment are handled and reconciled separately.
+
+
+Whittle Game
+Problem Description
+You and your friend were playing a whittle game using a rubber band where you have a bunch of nails hammered onto a wooden board, and you encompass all the nails with the help of a rubber band by fixing it on just the exact number of outermost nails that are enough to encompass all nails.
+
+The diagram below shows a rubber band tied around the outermost nails such that all other nails are enclosed by that shape.
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image1.png
+
+After you have created the outline using the rubber band you start playing the game. Here you start by removing that nail (amongst existing nails to which rubber-band is attached) that makes the area of enclosure the minimum. In your turn, you can remove one or more nails up to a maximum number of nails as specified in the input.
+
+The one who removes a nail such that the enclosed area becomes zero, wins the game. Assume each player removes the nail(s) in an optimal way without making any mistakes or giving any chance to let the other player win.
+
+Note: If there are two nails, such that after its removal have the same area of the enclosure, then the one which is the bottom-most (whichever has the lowest y-coordinate), should be removed. If both have same y-coordinate, then remove the one which is left-most.
+
+
+Your task is to find the nails that need to be picked to make the area of enclosure zero. Assume that you start picking up the nails first, predict if you can or cannot win the game.
+
+Constraints
+4 <= N <= 200 (such that the area enclosed by rubber-band > 0)
+
+-10^2 <= x, y <= 10^2
+
+1 <= m <= 100
+
+Input
+The first line contains an integer N which specifies the number of nails.
+
+Next N lines contains the (x, y) coordinates of a nail as 2 space delimited integers.
+
+Last line consists of single integer m which denotes the number of nails either player can pick in their turn.
+
+Output
+Print the (x, y) coordinates of the nails picked in sequential order, one on each line as 2 space delimited integers.
+
+Last line of output should be a YES or NO indicating if the game can or cannot be win with optimal play.
+
+Time Limit (secs)
+1
+
+Examples
+Example 1
+
+Input
+
+6
+
+0 0
+
+0 4
+
+-4 0
+
+5 0
+
+0 -6
+
+1 0
+
+2
+
+Output
+
+0 -6
+
+0 4
+
+YES
+
+Explanation
+
+Consider the following diagram:
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image2.png
+
+The nails have been plotted in the form of points and the rubber band is the outline made along the outermost nails.
+
+Now you must remove the nails one by one based on the given limit, 2 in this case.
+
+Either player can remove one nail or two nails in their turn. After removing first nail the rubber band will take the following shape:
+
+Initially the area is 45.0.
+
+After removing the nail (0, -6) minimum area is obtained and the shape is as depicted below
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image3.png
+
+The area becomes 18.0.
+
+After second nail is removed such that the area is less than the previous size, the shape will be:
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image4.png
+
+The area becomes 0.0.
+
+(0, -6) and (0, 4) is the only order in which the nails can be removed to make the area of enclosure zero, after adhering to the rules. Since one is allowed to remove 2 nails in one turn, winning is possible. Hence the output is as depicted in the Output section of the example.
+
+Example 2
+
+Input
+
+4
+
+0 -6
+
+4 0
+
+0 6
+
+-4 0
+
+1
+
+Output
+
+0 -6
+
+-4 0
+
+NO
+
+Explanation
+
+Consider the following diagram:
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image5.png
+
+The above is the shape made when the given coordinates are plotted.
+
+Now it is easy to see that removing any nail will result in the same area, therefore you choose the one which is bottom-most. So, we choose (0, -6). The shape will look as below:
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image6.png
+
+Now again removing any of the nails will lead to the same area that is zero so the one which is bottom-most and left-most, is removed.
+
+Then the final shape will be:
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@4b21844c:image7.png
+
+Now as the area is zero the game is over. Since a win is achieved by removing 2 nails which is maximum permissible in a player's turn, output is as depicted in the Output section in this example.
+
+
+
+
+def minimum_vehicles(weights, max_limit):
+    
+    sorted_weights = sorted(filter(lambda x: x != 0, weights), reverse=True)
+    
+    left, right = 0, len(sorted_weights) - 1
+    vehicles = 0
+        
+    while left <= right:
+        if sorted_weights[left] + sorted_weights[right] <= max_limit:
+            right -= 1
+        left += 1
+        vehicles += 1
+
+    return vehicles
+
+weights = list(map(int, input().split()))
+max_limit = int(input())
+
+result = minimum_vehicles(weights, max_limit)
+print(result,end="")
+
+
+
